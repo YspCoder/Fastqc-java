@@ -28,8 +28,9 @@ public class FastQCConfig {
     public boolean expgroup = false;
     public boolean quiet = false;
     public Integer kmer_size = null;
-    public Integer threads = null;
+    public Integer threads = 8;
     public File output_dir = null;
+    public String filename = null;
     public boolean casava = false;
     public boolean nano = false;
     public boolean nofilter = false;
@@ -47,7 +48,16 @@ public class FastQCConfig {
         if (System.getProperty("fastqc.output_dir") != null) {
             output_dir = new File(System.getProperty("fastqc.output_dir"));
             if (!(output_dir.exists() && output_dir.canWrite())) {
-                throw new IllegalArgumentException("Output dir " + output_dir + " doesn't exist or isn't writeable");
+                boolean b = output_dir.mkdirs();
+                if (!b) {
+                    throw new IllegalArgumentException("Output dir " + output_dir + " doesn't exist or isn't writeable");
+                }
+            }
+        }
+        if (System.getProperty("fastqc.filename") != null) {
+            filename = System.getProperty("fastqc.filename");
+            if (filename.equals("")) {
+                throw new IllegalArgumentException("filename " + filename + " doesn't exist or isn't writeable");
             }
         }
 

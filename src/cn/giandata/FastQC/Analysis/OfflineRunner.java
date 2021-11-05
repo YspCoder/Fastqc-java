@@ -172,14 +172,14 @@ public class OfflineRunner implements AnalysisListener {
 
 
 //        if (FastQCConfig.getInstance().output_dir != null) {
-        String fileName = file.getFile().getName().replaceAll("stdin:", "").replaceAll("\\.gz$", "").replaceAll("\\.bz2$", "").replaceAll("\\.txt$", "").replaceAll("\\.fastq$", "").replaceAll("\\.fq$", "").replaceAll("\\.csfastq$", "").replaceAll("\\.sam$", "").replaceAll("\\.bam$", "") + "_fastqc";
+        //String fileName = file.getFile().getName().replaceAll("stdin:", "").replaceAll("\\.gz$", "").replaceAll("\\.bz2$", "").replaceAll("\\.txt$", "").replaceAll("\\.fastq$", "").replaceAll("\\.fq$", "").replaceAll("\\.csfastq$", "").replaceAll("\\.sam$", "").replaceAll("\\.bam$", "");
 //            reportFile = new File(FastQCConfig.getInstance().output_dir + "/" + fileName);
 //        } else {
 //            reportFile = new File(file.getFile().getAbsolutePath().replaceAll("stdin:", "").replaceAll("\\.gz$", "").replaceAll("\\.bz2$", "").replaceAll("\\.txt$", "").replaceAll("\\.fastq$", "").replaceAll("\\.fq$", "").replaceAll("\\.csfastq$", "").replaceAll("\\.sam$", "").replaceAll("\\.bam$", "") + "_fastqc.html");
 //        }
 
         try {
-            new HTMLReportArchive(file, results, FastQCConfig.getInstance().output_dir + "/" + fileName);
+            new HTMLReportArchive(file, results, FastQCConfig.getInstance().output_dir + "/" + FastQCConfig.getInstance().filename, FastQCConfig.getInstance().filename);
         } catch (Exception e) {
             analysisExceptionReceived(file, e);
             return;
@@ -197,9 +197,9 @@ public class OfflineRunner implements AnalysisListener {
             }
             if (percentComplete > 100) {
                 if (showUpdates)
-                    System.err.println("Still going at " + percentComplete + "% complete for " + file.name());
+                    System.err.println("Still going at " + percentComplete + "- % - complete for " + file.name());
             } else {
-                if (showUpdates) System.err.println("Approx " + percentComplete + "% complete for " + file.name());
+                if (showUpdates) System.err.println("Approx " + percentComplete + "-% - complete for " + file.name());
             }
         }
     }

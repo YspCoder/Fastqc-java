@@ -42,7 +42,7 @@ public class HTMLReportArchive {
     private SequenceFile sequenceFile;
     private File file;
 
-    public HTMLReportArchive(SequenceFile sequenceFile, QCModule[] modules, String htmlFile) throws IOException, XMLStreamException {
+    public HTMLReportArchive(SequenceFile sequenceFile, QCModule[] modules, String htmlFile, String filename) throws IOException, XMLStreamException {
         this.sequenceFile = sequenceFile;
         this.modules = modules;
         this.file = new File(htmlFile);
@@ -96,14 +96,12 @@ public class HTMLReportArchive {
             xhtml.writeEndElement();
         }
         closeDocument();
-        Files.createFile(Paths.get(file.getParent() + "/" + folderName() + "/fastqc_report.html"));
-        BufferedWriter rp = new BufferedWriter(new FileWriter(file.getParent() + "/" + folderName() + "/fastqc_report.html"));
+        BufferedWriter rp = new BufferedWriter(new FileWriter(file.getParent() + "/" + folderName() + "/" + filename + ".html"));
         xhtml.flush();
         xhtml.close();
         rp.write(htmlStr.toString());
         rp.close();
-        Files.createFile(Paths.get(file.getParent() + "/" + folderName() + "/fastqc_data.txt"));
-        BufferedWriter fdt = new BufferedWriter(new FileWriter(file.getParent() + "/" + folderName() + "/fastqc_data.txt"));
+        BufferedWriter fdt = new BufferedWriter(new FileWriter(file.getParent() + "/" + folderName() + "/" + filename + ".txt"));
         fdt.write(data.toString());
         fdt.close();
         //XSL-FO
