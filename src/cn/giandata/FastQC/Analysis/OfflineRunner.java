@@ -27,8 +27,12 @@ import cn.giandata.FastQC.Sequence.SequenceFactory;
 import cn.giandata.FastQC.Sequence.SequenceFile;
 import cn.giandata.FastQC.Utilities.CasavaBasename;
 import cn.giandata.FastQC.Utilities.NanoporeBasename;
+import com.itextpdf.html2pdf.ConverterProperties;
+import com.itextpdf.html2pdf.HtmlConverter;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Vector;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -144,14 +148,15 @@ public class OfflineRunner implements AnalysisListener {
         if (somethingFailed) {
             System.exit(1);
         }
+
         System.exit(0);
 
     }
 
     public void processFile(File[] files) throws Exception {
-        for (int f = 0; f < files.length; f++) {
-            if (!files[f].getName().startsWith("stdin") && !files[f].exists()) {
-                throw new IOException(files[f].getName() + " doesn't exist");
+        for (File file : files) {
+            if (!file.getName().startsWith("stdin") && !file.exists()) {
+                throw new IOException(file.getName() + " doesn't exist");
             }
         }
         SequenceFile sequenceFile = SequenceFactory.getSequenceFile(files);
@@ -179,7 +184,18 @@ public class OfflineRunner implements AnalysisListener {
 //        }
 
         try {
-            new HTMLReportArchive(file, results, FastQCConfig.getInstance().output_dir + "/" + FastQCConfig.getInstance().filename, FastQCConfig.getInstance().filename);
+            String filepath =  FastQCConfig.getInstance().output_dir + "/" + FastQCConfig.getInstance().filename;
+            new HTMLReportArchive(file, results, filepath, FastQCConfig.getInstance().filename);
+
+            File htmlSource = new File(filepath+"/"+FastQCConfig.getInstance().filename+".html");
+            File pdfDest = new File(filepath+"/"+FastQCConfig.getInstance().filename+".pdf");
+            // pdfHTML specific code
+            ConverterProperties converterProperties = new ConverterProperties();
+            HtmlConverter.convertToPdf(new FileInputStream(htmlSource),
+                    new FileOutputStream(pdfDest), converterProperties);
+
+            htmlSource.deleteOnExit();
+
         } catch (Exception e) {
             analysisExceptionReceived(file, e);
             return;
@@ -199,7 +215,7 @@ public class OfflineRunner implements AnalysisListener {
                 if (showUpdates)
                     System.err.println("Still going at " + percentComplete + "- % - complete for " + file.name());
             } else {
-                if (showUpdates) System.err.println("Approx " + percentComplete + "-% - complete for " + file.name());
+                if (showUpdates) System.err.println("Approx " + percentComplete + "- % - complete for " + file.name());
             }
         }
     }

@@ -205,7 +205,7 @@ public class BasicStats extends AbstractQCModule {
 
 
     public void makeReport(HTMLReportArchive report) throws XMLStreamException, IOException {
-        super.writeTable(report, new ResultsTable());
+        super.writeTable(report, new ResultsTable(),"");
     }
 
     @SuppressWarnings("serial")

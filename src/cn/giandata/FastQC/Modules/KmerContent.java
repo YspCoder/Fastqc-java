@@ -424,7 +424,7 @@ public class KmerContent extends AbstractQCModule {
 		
 		else
 			{
-			super.writeTable(report, table);
+			super.writeTable(report, table,"");
 			}
 	}
 	

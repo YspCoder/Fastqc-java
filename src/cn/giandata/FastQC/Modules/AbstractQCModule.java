@@ -96,14 +96,17 @@ public abstract class AbstractQCModule implements QCModule {
     }
 
 
-    protected void writeTable(HTMLReportArchive report, TableModel table) throws IOException, XMLStreamException {
-        writeXhtmlTable(report, table);
+    protected void writeTable(HTMLReportArchive report, TableModel table,String s1) throws IOException, XMLStreamException {
+        writeXhtmlTable(report, table,s1);
         writeTextTable(report, table);
     }
 
-    protected void writeXhtmlTable(HTMLReportArchive report, TableModel table) throws IOException, XMLStreamException {
+    protected void writeXhtmlTable(HTMLReportArchive report, TableModel table,String s1) throws IOException, XMLStreamException {
         XMLStreamWriter w = report.xhtmlStream();
         w.writeStartElement("table");
+        if (s1.equals("s1")) {
+            w.writeAttribute("id", s1);
+        }
         w.writeStartElement("thead");
         w.writeStartElement("tr");
 

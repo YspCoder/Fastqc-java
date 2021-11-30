@@ -33,6 +33,7 @@ import javax.xml.stream.XMLStreamWriter;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class HTMLReportArchive {
@@ -181,61 +182,65 @@ public class HTMLReportArchive {
         xhtml.writeEndElement();//div
 
 
-        xhtml.writeStartElement("div");
-        xhtml.writeAttribute("class", "summary");
-
-        xhtml.writeStartElement("h2");
-        xhtml.writeCharacters("Summary");
-        xhtml.writeEndElement();//h2
-
-
-        xhtml.writeStartElement("ul");
-
-        StringBuilder summaryText = new StringBuilder();
-
-        for (int m = 0; m < modules.length; m++) {
-
-            if (modules[m].ignoreInReport()) {
-                continue;
-            }
-            xhtml.writeStartElement("li");
-            xhtml.writeEmptyElement("img");
-            if (modules[m].raisesError()) {
-                xhtml.writeAttribute("src", base64ForIcon("Icons/error.png"));
-                xhtml.writeAttribute("alt", "[FAIL]");
-                summaryText.append("FAIL");
-            } else if (modules[m].raisesWarning()) {
-                xhtml.writeAttribute("src", base64ForIcon("Icons/warning.png"));
-                xhtml.writeAttribute("alt", "[WARNING]");
-                summaryText.append("WARN");
-            } else {
-                xhtml.writeAttribute("src", base64ForIcon("Icons/tick.png"));
-                xhtml.writeAttribute("alt", "[PASS]");
-                summaryText.append("PASS");
-            }
-            summaryText.append("\t");
-            summaryText.append(modules[m].name());
-            summaryText.append("\t");
-            summaryText.append(sequenceFile.name());
-            summaryText.append(FastQCConfig.getInstance().lineSeparator);
-
-            xhtml.writeStartElement("a");
-            xhtml.writeAttribute("href", "#M" + m);
-            xhtml.writeCharacters(modules[m].name());
-            xhtml.writeEndElement();//a
-            xhtml.writeEndElement();//li
+//        xhtml.writeStartElement("div");
+//        xhtml.writeAttribute("class", "summary");
+//
+//        xhtml.writeStartElement("h2");
+//        xhtml.writeCharacters("Summary");
+//        xhtml.writeEndElement();//h2
 
 
-        }
-        xhtml.writeEndElement();//ul
-        xhtml.writeEndElement();//div
+//        xhtml.writeStartElement("ul");
+//
+//        StringBuilder summaryText = new StringBuilder();
+//
+//        for (int m = 0; m < modules.length; m++) {
+//
+//            if (modules[m].ignoreInReport()) {
+//                continue;
+//            }
+//            xhtml.writeStartElement("li");
+//            xhtml.writeEmptyElement("img");
+//            if (modules[m].raisesError()) {
+//                xhtml.writeAttribute("src", base64ForIcon("Icons/error.png"));
+//                xhtml.writeAttribute("alt", "[FAIL]");
+//                summaryText.append("FAIL");
+//            } else if (modules[m].raisesWarning()) {
+//                xhtml.writeAttribute("src", base64ForIcon("Icons/warning.png"));
+//                xhtml.writeAttribute("alt", "[WARNING]");
+//                summaryText.append("WARN");
+//            } else {
+//                xhtml.writeAttribute("src", base64ForIcon("Icons/tick.png"));
+//                xhtml.writeAttribute("alt", "[PASS]");
+//                summaryText.append("PASS");
+//            }
+//            summaryText.append("\t");
+//            summaryText.append(modules[m].name());
+//            summaryText.append("\t");
+//            summaryText.append(sequenceFile.name());
+//            summaryText.append(FastQCConfig.getInstance().lineSeparator);
+//
+//            xhtml.writeStartElement("a");
+//            xhtml.writeAttribute("href", "#M" + m);
+//            xhtml.writeCharacters(modules[m].name());
+//            xhtml.writeEndElement();//a
+//            xhtml.writeEndElement();//li
+//
+//
+//        }
+//        xhtml.writeEndElement();//ul
+//        xhtml.writeEndElement();//div
 
         xhtml.writeStartElement("div");
         xhtml.writeAttribute("class", "main");
-        Files.createFile(Paths.get(file.getParent() + "/" + folderName() + "/summary.txt"));
-        BufferedWriter rp = new BufferedWriter(new FileWriter(file.getParent() + "/" + folderName() + "/summary.txt"));
-        rp.write(summaryText.toString());
-        rp.close();
+//        Path paths = Paths.get(file.getParent() + "/" + folderName() + "/summary.txt");
+//        if (Files.exists(paths)) {
+//            Files.delete(paths);
+//        }
+//        Files.createFile(paths);
+//        BufferedWriter rp = new BufferedWriter(new FileWriter(file.getParent() + "/" + folderName() + "/summary.txt"));
+//        rp.write(summaryText.toString());
+//        rp.close();
 
     }
 

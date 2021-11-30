@@ -150,12 +150,22 @@ public class PerSequenceQualityScores extends AbstractQCModule {
 
 		StringBuffer sb = report.dataDocument();
 		sb.append("#Quality\tCount\n");
+		long av = 0;
+		long count = 0;
 		for (int i=0;i<xCategories.length;i++) {
 			sb.append(xCategories[i]);
 			sb.append("\t");
 			sb.append(qualityDistribution[i]);
 			sb.append("\n");
+			av = (long) (av + (xCategories[i]*qualityDistribution[i]));
+			count = (long) (count + qualityDistribution[i]);
 		}
+
+		int a = Math.toIntExact(av / count);
+
+		sb.append("#AverageValue:");
+		sb.append(a);
+		sb.append("\n");
 	}
 
 

@@ -310,7 +310,7 @@ public class OverRepresentedSeqs extends AbstractQCModule {
 			}
 		
 		else {
-			super.writeTable(report, table);
+			super.writeTable(report, table,"s1");
 			}	
 		}
 
