@@ -338,23 +338,23 @@ public class PerTileQualityScores extends AbstractQCModule {
 		
 		writeDefaultImage(report, "per_tile_quality.png", "Per tile quality graph", Math.max(800, xLabels.length*15), 600);
 
-		StringBuffer sb = report.dataDocument();
-		sb.append("#Tile\tBase\tMean\n");
-
-		for (int t=0;t<tiles.length;t++) {
-			for (int i=0;i<means[t].length;i++) {
-
-				sb.append(tiles[t]);
-				sb.append("\t");
-
-				sb.append(xLabels[i]);
-				sb.append("\t");
-
-				sb.append(means[t][i]);
-
-				sb.append("\n");
-			}
-		}
+//		StringBuffer sb = report.dataDocument();
+//		sb.append("#Tile\tBase\tMean\n");
+//
+//		for (int t=0;t<tiles.length;t++) {
+//			for (int i=0;i<means[t].length;i++) {
+//
+//				sb.append(tiles[t]);
+//				sb.append("\t");
+//
+//				sb.append(xLabels[i]);
+//				sb.append("\t");
+//
+//				sb.append(means[t][i]);
+//
+//				sb.append("\n");
+//			}
+//		}
 	}
 
 	private double getMean (int tile, int minbp, int maxbp, int offset) {

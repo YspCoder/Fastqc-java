@@ -203,20 +203,20 @@ public class PerBaseSequenceContent extends AbstractQCModule {
 		
 		writeDefaultImage(report, "per_base_sequence_content.png", "Per base sequence content", Math.max(800, xCategories.length*15), 600);
 		
-		StringBuffer sb = report.dataDocument();
-		sb.append("#Base\tG\tA\tT\tC\n");
-		for (int i=0;i<xCategories.length;i++) {
-			sb.append(xCategories[i]);
-			sb.append("\t");
-			sb.append(percentages[3][i]);
-			sb.append("\t");
-			sb.append(percentages[2][i]);
-			sb.append("\t");
-			sb.append(percentages[0][i]);
-			sb.append("\t");
-			sb.append(percentages[1][i]);
-			sb.append("\n");
-		}
+//		StringBuffer sb = report.dataDocument();
+//		sb.append("#Base\tG\tA\tT\tC\n");
+//		for (int i=0;i<xCategories.length;i++) {
+//			sb.append(xCategories[i]);
+//			sb.append("\t");
+//			sb.append(percentages[3][i]);
+//			sb.append("\t");
+//			sb.append(percentages[2][i]);
+//			sb.append("\t");
+//			sb.append(percentages[0][i]);
+//			sb.append("\t");
+//			sb.append(percentages[1][i]);
+//			sb.append("\n");
+//		}
 		
 	} 
 

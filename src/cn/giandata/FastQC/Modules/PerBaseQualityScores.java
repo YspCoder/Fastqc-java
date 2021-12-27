@@ -198,31 +198,31 @@ public class PerBaseQualityScores extends AbstractQCModule {
 
 		writeDefaultImage(report, "per_base_quality.png", "Per base quality graph", Math.max(800, means.length*15), 600);		
 		
-		StringBuffer sb = report.dataDocument();
-		sb.append("#Base\tMean\tMedian\tLower Quartile\tUpper Quartile\t10th Percentile\t90th Percentile\n");
-		for (int i=0;i<means.length;i++) {
-			sb.append(xLabels[i]);
-			sb.append("\t");
-
-			sb.append(means[i]);
-			sb.append("\t");
-
-			sb.append(medians[i]);
-			sb.append("\t");
-
-			sb.append(lowerQuartile[i]);
-			sb.append("\t");
-
-			sb.append(upperQuartile[i]);
-			sb.append("\t");
-
-			sb.append(lowest[i]);
-			sb.append("\t");
-
-			sb.append(highest[i]);
-
-			sb.append("\n");
-		}
+//		StringBuffer sb = report.dataDocument();
+//		sb.append("#Base\tMean\tMedian\tLower Quartile\tUpper Quartile\t10th Percentile\t90th Percentile\n");
+//		for (int i=0;i<means.length;i++) {
+//			sb.append(xLabels[i]);
+//			sb.append("\t");
+//
+//			sb.append(means[i]);
+//			sb.append("\t");
+//
+//			sb.append(medians[i]);
+//			sb.append("\t");
+//
+//			sb.append(lowerQuartile[i]);
+//			sb.append("\t");
+//
+//			sb.append(upperQuartile[i]);
+//			sb.append("\t");
+//
+//			sb.append(lowest[i]);
+//			sb.append("\t");
+//
+//			sb.append(highest[i]);
+//
+//			sb.append("\n");
+//		}
 	}
 	
 	private double getPercentile (int minbp, int maxbp, int offset, int percentile) {

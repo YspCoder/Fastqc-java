@@ -237,18 +237,18 @@ public class SequenceLengthDistribution extends AbstractQCModule {
 
 		writeDefaultImage(report, "sequence_length_distribution.png", "Sequence length distribution",  Math.max(800, graphCounts.length*15), 600);
 		
-		StringBuffer sb = report.dataDocument();
-		sb.append("#Length\tCount\n");
-		for (int i=0;i<xCategories.length;i++) {
-			// Remove any padding we added to make the graph look better
-			if ((i==0 || i== xCategories.length-1) && graphCounts[i] == 0) {
-				continue;
-			}
-			sb.append(xCategories[i]);
-			sb.append("\t");
-			sb.append(graphCounts[i]);
-			sb.append("\n");
-		}
+//		StringBuffer sb = report.dataDocument();
+//		sb.append("#Length\tCount\n");
+//		for (int i=0;i<xCategories.length;i++) {
+//			// Remove any padding we added to make the graph look better
+//			if ((i==0 || i== xCategories.length-1) && graphCounts[i] == 0) {
+//				continue;
+//			}
+//			sb.append(xCategories[i]);
+//			sb.append("\t");
+//			sb.append(graphCounts[i]);
+//			sb.append("\n");
+//		}
 	}
 
 }

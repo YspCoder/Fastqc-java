@@ -272,28 +272,28 @@ public class AdapterContent extends AbstractQCModule {
 
 			writeDefaultImage(report, "adapter_content.png", "Adapter graph", Math.max(800, groups.length*15), 600);
 
-			StringBuffer sb = report.dataDocument();
+			//StringBuffer sb = report.dataDocument();
 
-			ResultsTable table = new ResultsTable();
+			//ResultsTable table = new ResultsTable();
 			// Header
-			sb.append("#");
-			for (int i=0;i<table.getColumnCount();i++) {
-				if (i>0) {
-					sb.append("\t");
-				}
-				sb.append(table.getColumnName(i));
-			}
-			sb.append("\n");
-			
-			for (int r=0;r<table.getRowCount();r++) {
-				for (int c=0;c<table.getColumnCount();c++) {
-					if (c>0) {
-						sb.append("\t");
-					}
-					sb.append(table.getValueAt(r, c));
-				}
-				sb.append("\n");
-			}
+			//sb.append("#");
+//			for (int i=0;i<table.getColumnCount();i++) {
+//				if (i>0) {
+//					sb.append("\t");
+//				}
+//				sb.append(table.getColumnName(i));
+//			}
+//			sb.append("\n");
+//
+//			for (int r=0;r<table.getRowCount();r++) {
+//				for (int c=0;c<table.getColumnCount();c++) {
+//					if (c>0) {
+//						sb.append("\t");
+//					}
+//					sb.append(table.getValueAt(r, c));
+//				}
+//				sb.append("\n");
+//			}
 			
 		}
 	}

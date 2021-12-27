@@ -151,15 +151,15 @@ public class NContent extends AbstractQCModule {
 		if (!calculated) getPercentages();
 		
 		writeDefaultImage(report, "per_base_n_content.png", "N content graph", Math.max(800, percentages.length*15), 600);		
-		
-		StringBuffer sb = report.dataDocument();
-		sb.append("#Base\tN-Count\n");
-		for (int i=0;i<xCategories.length;i++) {
-			sb.append(xCategories[i]);
-			sb.append("\t");
-			sb.append(percentages[i]);
-			sb.append("\n");
-		}
+//
+//		StringBuffer sb = report.dataDocument();
+//		sb.append("#Base\tN-Count\n");
+//		for (int i=0;i<xCategories.length;i++) {
+//			sb.append(xCategories[i]);
+//			sb.append("\t");
+//			sb.append(percentages[i]);
+//			sb.append("\n");
+//		}
 	}
 
 }

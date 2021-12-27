@@ -34,9 +34,9 @@ public class ModuleFactory {
 				new PerSequenceGCContent(),
 				new NContent(),
 				new SequenceLengthDistribution(),
+				new AdapterContent(),
 				os.duplicationLevelModule(),
 				os,
-				new AdapterContent(),
 				new KmerContent(),
 			};
 	

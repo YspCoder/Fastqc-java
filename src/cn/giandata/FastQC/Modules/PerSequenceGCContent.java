@@ -254,13 +254,13 @@ public class PerSequenceGCContent extends AbstractQCModule {
 		
 		writeDefaultImage(report, "per_sequence_gc_content.png", "Per sequence GC content graph", 800, 600);
 				
-		StringBuffer sb = report.dataDocument();
-		sb.append("#GC Content\tCount\n");
-		for (int i=0;i<xCategories.length;i++) {
-			sb.append(xCategories[i]);
-			sb.append("\t");
-			sb.append(gcDistribution[i]);
-			sb.append("\n");
-		}
+//		StringBuffer sb = report.dataDocument();
+//		sb.append("#GC Content\tCount\n");
+//		for (int i=0;i<xCategories.length;i++) {
+//			sb.append(xCategories[i]);
+//			sb.append("\t");
+//			sb.append(gcDistribution[i]);
+//			sb.append("\n");
+//		}
 	}
 }

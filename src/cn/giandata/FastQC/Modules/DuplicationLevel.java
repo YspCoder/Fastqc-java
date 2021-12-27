@@ -215,24 +215,24 @@ public class DuplicationLevel extends AbstractQCModule {
 
 		writeDefaultImage(report, "duplication_levels.png", "Duplication level graph", 800, 600);
 				
-		StringBuffer sb = report.dataDocument();
-		
-		sb.append("#Total Deduplicated Percentage\t");
-		sb.append(percentDifferentSeqs);
-		sb.append("\n");
-		
-		sb.append("#Duplication Level\tPercentage of deduplicated\tPercentage of total\n");
-		for (int i=0;i<labels.length;i++) {
-			sb.append(labels[i]);
-			if (i == labels.length-1) {
-				sb.append("+");
-			}
-			sb.append("\t");
-			sb.append(deduplicatedPercentages[i]);
-			sb.append("\t");
-			sb.append(totalPercentages[i]);
-			sb.append("\n");
-		}
+//		StringBuffer sb = report.dataDocument();
+//
+//		sb.append("#Total Deduplicated Percentage\t");
+//		sb.append(percentDifferentSeqs);
+//		sb.append("\n");
+//
+//		sb.append("#Duplication Level\tPercentage of deduplicated\tPercentage of total\n");
+//		for (int i=0;i<labels.length;i++) {
+//			sb.append(labels[i]);
+//			if (i == labels.length-1) {
+//				sb.append("+");
+//			}
+//			sb.append("\t");
+//			sb.append(deduplicatedPercentages[i]);
+//			sb.append("\t");
+//			sb.append(totalPercentages[i]);
+//			sb.append("\n");
+//		}
 		
 	}
 

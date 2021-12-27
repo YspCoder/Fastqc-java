@@ -79,20 +79,20 @@ public class HTMLReportArchive {
 
 
             xhtml.writeCharacters(modules[m].name());
-            data.append(">>");
-            data.append(modules[m].name());
-            data.append("\t");
-            if (modules[m].raisesError()) {
-                data.append("fail");
-            } else if (modules[m].raisesWarning()) {
-                data.append("warn");
-            } else {
-                data.append("pass");
-            }
-            data.append("\n");
+//            data.append(">>");
+//            data.append(modules[m].name());
+//            data.append("\t");
+//            if (modules[m].raisesError()) {
+//                data.append("fail");
+//            } else if (modules[m].raisesWarning()) {
+//                data.append("warn");
+//            } else {
+//                data.append("pass");
+//            }
+//            data.append("\n");
             xhtml.writeEndElement();
             modules[m].makeReport(this);
-            data.append(">>END_MODULE\n");
+            //data.append(">>END_MODULE\n");
 
             xhtml.writeEndElement();
         }

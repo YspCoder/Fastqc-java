@@ -149,14 +149,14 @@ public class PerSequenceQualityScores extends AbstractQCModule {
 		writeDefaultImage(report, "per_sequence_quality.png", "Per Sequence quality graph", 800, 600);
 
 		StringBuffer sb = report.dataDocument();
-		sb.append("#Quality\tCount\n");
+//		sb.append("#Quality\tCount\n");
 		long av = 0;
 		long count = 0;
 		for (int i=0;i<xCategories.length;i++) {
-			sb.append(xCategories[i]);
-			sb.append("\t");
-			sb.append(qualityDistribution[i]);
-			sb.append("\n");
+//			sb.append(xCategories[i]);
+//			sb.append("\t");
+//			sb.append(qualityDistribution[i]);
+//			sb.append("\n");
 			av = (long) (av + (xCategories[i]*qualityDistribution[i]));
 			count = (long) (count + qualityDistribution[i]);
 		}
